@@ -1,27 +1,31 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+	"strings"
+)
 
 func main() {
-	var ages = [3]int{25, 30, 35}
+	greeting := "Hello, World!"
 
-	names := [4]string{"Alice", "Bob", "Charlie", "David"}
-	names[0] = "Eve"
+	fmt.Println(strings.Contains(greeting, "Hello"))
+	fmt.Println(strings.ReplaceAll(greeting, "Hello", "Hi"))
+	fmt.Println(strings.ToUpper(greeting))
+	fmt.Println(strings.Index(greeting, "ll"))
+	fmt.Println(strings.Split(greeting, " "))
 
-	scores := []int{90, 85, 92}
-	scores = append(scores, 100)
+	ages := []int{25, 30, 35, 40, 70, 80, 90}
 
-	// gets all the elements from the given number until the given number or the end of the array
-	rangeOne := names[1:3]
-	rangeTwo := names[2:]
-	rangeThree := names[:2]
-	fmt.Println(rangeOne)
-	fmt.Println(rangeTwo)
-	fmt.Println(rangeThree)
+	sort.Ints(ages)
+	fmt.Println(ages)
 
-	fmt.Println(ages, len(ages))
+	index := sort.SearchInts(ages, 35)
+	fmt.Println(index)
 
-	fmt.Println(names, len(names))
+	names := []string{"Alice", "Bob", "Charlie", "David", "Eve"}
+	sort.Strings(names)
+	fmt.Println(names)
 
-	fmt.Println(scores, len(scores))
+	fmt.Println(sort.SearchStrings(names, "Bob"))
 }
