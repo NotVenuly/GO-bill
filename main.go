@@ -3,33 +3,25 @@ package main
 import "fmt"
 
 func main() {
-	age := 30
-	name := "Alice"
+	var ages = [3]int{25, 30, 35}
 
-	//Doesn't add a new line at the end of the output
-	fmt.Print("Hello, World! \n")
+	names := [4]string{"Alice", "Bob", "Charlie", "David"}
+	names[0] = "Eve"
 
-	//Adds a new line at the end of the output
-	fmt.Println("Hello,", name, "You are", age, "years old.")
+	scores := []int{90, 85, 92}
+	scores = append(scores, 100)
 
-	//formatted strings allows you to include variables in a string using placeholders
+	// gets all the elements from the given number until the given number or the end of the array
+	rangeOne := names[1:3]
+	rangeTwo := names[2:]
+	rangeThree := names[:2]
+	fmt.Println(rangeOne)
+	fmt.Println(rangeTwo)
+	fmt.Println(rangeThree)
 
-	//%v is a formatspecifier
-	fmt.Printf("my age is %v and my name is %v \n", age, name)
+	fmt.Println(ages, len(ages))
 
-	//%q is a formatspecifier that adds double quotes around the value if it's a string
-	fmt.Printf("my age is %q and my name is %q \n", age, name)
+	fmt.Println(names, len(names))
 
-	//%T is a formatspecifier that prints the type of the variable
-	fmt.Printf("age is of type %T \n", age)
-
-	//%f is a formatspecifier that formats a floating-point number
-	//you can specify the number of decimal places to display by typing %0.1f where 1 is the number of decimal places you want to display
-	fmt.Printf("you scored %f points! \n", 95.5)
-	fmt.Printf("you scored %0.1f points! \n", 95.5)
-	fmt.Printf("you scored %0.3f points! \n", 95.5)
-
-	//sprintf is a function that returns a formatted string instead of printing it to the console
-	var str = fmt.Sprintf("my age is %v and my name is %v \n", age, name)
-	fmt.Println("saved string:", str)
+	fmt.Println(scores, len(scores))
 }
