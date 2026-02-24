@@ -2,23 +2,37 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
-func main() {
-	age := 30
+func SayGreeting(name string) {
+	fmt.Printf("Good morning, %v\n", name)
+}
 
-	fmt.Println(age <= 50)
-	fmt.Println(age >= 18)
-	fmt.Println(age == 18)
-	fmt.Println(age != 50)
+func sayBye(name string) {
+	fmt.Printf("Good bye, %v\n", name)
+}
 
-	names := []string{"Alice", "Bob", "Charlie"}
-
-	for index, name := range names {
-		if index == 1 {
-			fmt.Println("continuing at pos", index)
-			continue
-		}
-		fmt.Printf("the value at position %v is %v\n", index, name)
+func CycleNames(names []string, function func(string)) {
+	for _, value := range names {
+		function(value)
 	}
+}
+
+func CircleArea(radius float64) float64 {
+	return math.Pi * radius * radius
+}
+
+func main() {
+	SayGreeting("John")
+	sayBye("John")
+
+	CycleNames([]string{"John", "Jane", "Doe"}, SayGreeting)
+	CycleNames([]string{"John", "Jane", "Doe"}, sayBye)
+
+	a1 := CircleArea(5)
+	a2 := CircleArea(10)
+
+	fmt.Printf("Area 1: %0.2f\n", a1)
+	fmt.Printf("Area 2: %0.2f\n", a2)
 }
