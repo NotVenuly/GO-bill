@@ -3,29 +3,33 @@ package main
 import "fmt"
 
 func main() {
-	var nameOne string = "John"
-	var nameTwo = "Doe"
-	var nameThree string
-	nameFour := "Smith"
+	age := 30
+	name := "Alice"
 
-	fmt.Println(nameOne, nameTwo, nameThree, nameFour)
+	//Doesn't add a new line at the end of the output
+	fmt.Print("Hello, World! \n")
 
-	var ageOne int = 30
-	var ageTwo = 25
-	var ageThree int
-	ageFour := 40
-	fmt.Println(ageOne, ageTwo, ageThree, ageFour)
+	//Adds a new line at the end of the output
+	fmt.Println("Hello,", name, "You are", age, "years old.")
 
-	//bits and memory
-	var bigNumber int8 = 52
-	var smallNumber int8 = -128
-	var num int16 = 32767
-	var mediumNumber uint8 = 25
-	fmt.Println(bigNumber, smallNumber, num, mediumNumber)
+	//formatted strings allows you to include variables in a string using placeholders
 
-	var scoreOne float32 = 95.5
-	var scoreTwo float64 = 89.75
-	scoreThree := 78.25
+	//%v is a formatspecifier
+	fmt.Printf("my age is %v and my name is %v \n", age, name)
 
-	println(scoreOne, scoreTwo, scoreThree)
+	//%q is a formatspecifier that adds double quotes around the value if it's a string
+	fmt.Printf("my age is %q and my name is %q \n", age, name)
+
+	//%T is a formatspecifier that prints the type of the variable
+	fmt.Printf("age is of type %T \n", age)
+
+	//%f is a formatspecifier that formats a floating-point number
+	//you can specify the number of decimal places to display by typing %0.1f where 1 is the number of decimal places you want to display
+	fmt.Printf("you scored %f points! \n", 95.5)
+	fmt.Printf("you scored %0.1f points! \n", 95.5)
+	fmt.Printf("you scored %0.3f points! \n", 95.5)
+
+	//sprintf is a function that returns a formatted string instead of printing it to the console
+	var str = fmt.Sprintf("my age is %v and my name is %v \n", age, name)
+	fmt.Println("saved string:", str)
 }
