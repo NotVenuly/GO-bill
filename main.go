@@ -5,17 +5,20 @@ import (
 )
 
 func main() {
+	age := 30
+
+	fmt.Println(age <= 50)
+	fmt.Println(age >= 18)
+	fmt.Println(age == 18)
+	fmt.Println(age != 50)
+
 	names := []string{"Alice", "Bob", "Charlie"}
 
-	for index, value := range names {
-		fmt.Printf("Index: %v, Value: %v\n", index, value)
-	}
-
-	for _, value := range names {
-		fmt.Printf("Value: %v\n", value)
-	}
-
-	for index := range names {
-		fmt.Printf("Index: %v\n", index)
+	for index, name := range names {
+		if index == 1 {
+			fmt.Println("continuing at pos", index)
+			continue
+		}
+		fmt.Printf("the value at position %v is %v\n", index, name)
 	}
 }
